@@ -1157,7 +1157,8 @@ button {
 }
 
 .period-row {
-  height: 42px;
+  height: auto;
+  min-height: 42px;
 }
 
 .period-time {
@@ -1184,7 +1185,8 @@ button {
 }
 
 .formal-slot {
-  height: 42px;
+  height: auto;
+  min-height: 42px;
   padding: 0.2rem;
   text-align: center;
   vertical-align: middle;
@@ -1222,18 +1224,20 @@ button {
 
 .formal-subject {
   color: #111;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.2;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .formal-meta {
   color: #222;
-  font-size: 0.77rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .formal-duration {

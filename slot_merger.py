@@ -67,6 +67,9 @@ class SlotMerger:
         return merged
 
     def _can_merge(self, current: dict, candidate: dict) -> bool:
+        # Tutorials are always 1-hour slots — never merge them
+        if current.get("kind") == "tutorial" or candidate.get("kind") == "tutorial":
+            return False
         if current.get("subject") != candidate.get("subject"):
             return False
         if current.get("division") != candidate.get("division"):

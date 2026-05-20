@@ -570,6 +570,9 @@
     },
 
     spanFor(matrix, day, slotIndex, entries) {
+      // Tutorials are always 1-hour — never span
+      if (entries.some((e) => normalizeKind(e.kind) === "tutorial")) return 1;
+
       const declaredSpan = Math.max(...entries.map((entry) => Number(entry.duration) || 1));
       if (declaredSpan > 1) return Math.min(declaredSpan, maxSpanFrom(slotIndex));
 
@@ -1052,7 +1055,8 @@
               : [255, 247, 236];
           const content = entries.map((entry) => {
             const label = buildEntryLabel(entry);
-            return [label.subject, label.meta].filter(Boolean).join("\n");
+            const kindTag = kind === "tutorial" ? " Tut" : "";
+            return [label.subject + kindTag, label.meta].filter(Boolean).join("\n");
           }).join("\n----\n");
 
           row.push({
